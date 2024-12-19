@@ -32,10 +32,12 @@ router.post('/', async (req, res) => {
     accountability: req.accountability
   });
 
-  const assetKey = await filesService.importOne({
-    url: file_url,
-    data: file_object,
-  });
+  const assetKey = await filesService.importOne(
+		file_url,
+		{
+			file_object,
+  	}
+	);
 
   const data = await filesService.readOne(assetKey);
 
